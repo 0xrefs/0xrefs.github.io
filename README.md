@@ -1,10 +1,25 @@
 # 0xrefs
 
-Interactive offensive-security command cheatsheet. Pick your context, fill in the
+Interactive offensive-security command cheatsheet. Pick the category, fill in the
 variables once, and copy ready-to-run commands, or load them straight into your
-shell history.
+shell history through curl.
 
-Live site: https://0xrefs.github.io
+<img width="1014" height="849" alt="0xrefs" src="https://github.com/user-attachments/assets/4d130457-2565-4182-9395-a25c34e6ab04" />
+
+
+---
+
+## Why I built this?
+
+I built 0xrefs after running into the same issue over and over:
+
+- My notes keep growing. Over time, I prefer to keep them focused on methodology and exploitation techniques rather than repeating the same commands dozens of times.
+- I often knew the command I needed, but not the exact syntax, flags, or argument order I had used before.
+- For many older tools and binaries, especially standalone .exe files, the built-in help is limited or nonexistent, making it difficult to remember the correct usage months later.
+
+0xrefs gives US <3 a single place to store those commands as reusable templates: fill in the variables once, copy the command, and move on.
+
+---
 
 ## Install commands into your shell history
 
