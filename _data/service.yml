@@ -1,0 +1,48 @@
+SMB:
+  label: SMB
+  description: Server Message Block.
+LDAP:
+  label: LDAP
+  description: Directory access.
+Kerberos:
+  label: Kerberos
+  description: Kerberos authentication.
+WinRM:
+  label: WinRM
+  description: Windows Remote Management.
+RDP:
+  label: RDP
+  description: Remote Desktop.
+MSSQL:
+  label: MSSQL
+  description: Microsoft SQL Server.
+HTTP:
+  label: HTTP
+  description: Web service.
+SNMP:
+  label: SNMP
+  description: Simple Network Management Protocol.
+DNS:
+  label: DNS
+  description: Domain Name System.
+RPC:
+  label: RPC
+  description: Remote Procedure Call.
+Redis:
+  label: Redis
+  description: Redis key-value store.
+MySQL:
+  label: MySQL
+  description: MySQL database.
+SSH:
+  label: SSH
+  description: Secure Shell.
+AD:
+  label: AD
+  description: Active Directory (general).
+ADCS:
+  label: ADCS
+  description: Active Directory Certificate Services.
+WMI:
+  label: WMI
+  description: Windows Management Instrumentation.

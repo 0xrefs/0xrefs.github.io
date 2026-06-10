@@ -1,0 +1,27 @@
+Enumeration:
+  label: Enumeration
+  description: Information gathering.
+Exploitation:
+  label: Exploitation
+  description: Gaining access.
+PrivEsc:
+  label: PrivEsc
+  description: Privilege escalation.
+Persistence:
+  label: Persistence
+  description: Maintaining access.
+Cracking:
+  label: Cracking
+  description: Password / hash cracking.
+Pivoting:
+  label: Pivoting
+  description: Lateral movement / tunneling.
+LateralMovement:
+  label: LateralMovement
+  description: Moving between hosts / sessions.
+CredAccess:
+  label: CredAccess
+  description: Credential dumping and extraction.
+InitialAccess:
+  label: InitialAccess
+  description: Gaining first foothold.

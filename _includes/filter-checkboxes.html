@@ -1,0 +1,18 @@
+<div id="filters">
+  {% assign groups = "os,category,have,service,phase" | split: "," %}
+  {% assign headings = "OS,Category,What you have,Service,Phase" | split: "," %}
+  {% for group in groups %}
+  <div class="filter-group" data-group="{{ group }}">
+    <h3>{{ headings[forloop.index0] }}</h3>
+    <ul>
+      {% for pair in site.data[group] %}
+      {% assign value = pair[0] | downcase %}
+      <li>
+        <input type="checkbox" id="flt-{{ value }}" data-value="{{ value }}">
+        <label for="flt-{{ value }}" title="{{ pair[1].description }}">{{ pair[1].label }}</label>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>

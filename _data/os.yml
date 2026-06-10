@@ -1,0 +1,6 @@
+Linux:
+  label: Linux
+  description: Command runs on Linux.
+Windows:
+  label: Windows
+  description: Command runs on Windows.

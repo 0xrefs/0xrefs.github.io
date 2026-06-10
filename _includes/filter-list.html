@@ -1,0 +1,6 @@
+<ul class="filter-list">
+  {% for t in include.cmd.os %}<li><span class="pill" data-value="{{ t | downcase }}">{{ t }}</span></li>{% endfor %}
+  {% for t in include.cmd.category %}<li><span class="pill" data-value="{{ t | downcase }}">{{ t }}</span></li>{% endfor %}
+  {% for t in include.cmd.service %}<li><span class="pill" data-value="{{ t | downcase }}">{{ t }}</span></li>{% endfor %}
+  {% for t in include.cmd.phase %}<li><span class="pill" data-value="{{ t | downcase }}">{{ t }}</span></li>{% endfor %}
+</ul>

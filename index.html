@@ -1,0 +1,30 @@
+---
+layout: default
+title: 0xrefs
+---
+{% include page-title.html title="0xrefs" %}
+
+<p>0xrefs is an interactive cheat sheet of offensive-security commands. Fill in the
+variables once ($IP, $USER, $PASSWORD, …) and every command updates with your values,
+ready to copy. Use the checkboxes or type <code>&lt;command&gt; +&lt;filter&gt;</code> to search.</p>
+
+<p>Load the set into your shell history, pick which commands and which shell:</p>
+
+{% include install-box.html %}
+
+{% include variable-bar.html %}
+{% include filter-checkboxes.html %}
+
+<input id="search" type="text" placeholder="Search among {{ site.commands | size }} commands: <command> +<filter> ...">
+
+<div id="toolbar">
+  <span class="toolbar-left">
+    <span id="result-count"></span>
+    <button id="clear-filters" type="button" class="pill" hidden>clear filters</button>
+  </span>
+  <span class="toolbar-note">for python files you can run <code>python3</code> instead of <code>uv run</code></span>
+  <span class="contribute-note">Missing a command?
+    <a href="https://github.com/0xrefs/0xrefs.github.io/tree/main/_commands">Contribute one on GitHub</a>.</span>
+</div>
+
+{% include command-table.html %}

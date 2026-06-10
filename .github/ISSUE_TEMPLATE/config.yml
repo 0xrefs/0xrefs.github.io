@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Browse the cheat sheet
+    url: https://0xrefs.github.io
+    about: Check whether the command already exists before opening an issue.
+  - name: Contributing guide
+    url: https://github.com/0xrefs/0xrefs.github.io/blob/main/CONTRIBUTING.md
+    about: How to add a command yourself in a single file.
