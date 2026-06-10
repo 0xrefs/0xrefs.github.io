@@ -1,0 +1,30 @@
+<table id="commands">
+  <tbody>
+  {% assign cmds = site.commands | sort_natural: 'path' %}
+  {% for c in cmds %}
+    {% assign primary = c.command %}
+    {% if c.variants %}{% assign primary = c.variants[0].command %}{% endif %}
+    <tr class="cmd-row"
+        data-tags="{{ c.os | join: ' ' | downcase }} {{ c.category | join: ' ' | downcase }} {{ c.service | join: ' ' | downcase }} {{ c.phase | join: ' ' | downcase }} {{ c.have | join: ' ' | downcase }}">
+      <td>
+        <div class="cmd-group">
+          <span class="os-icons">{% include os-icons.html os=c.os %}</span>
+          {% if c.variants %}
+          <div class="variant-tabs">
+            {% for v in c.variants %}
+            <button type="button" class="variant-tab{% if forloop.first %} active{% endif %}" data-command="{{ v.command | strip | escape }}">{{ v.label }}</button>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <div class="bin-name">
+            <a class="cmd-link cmd-text" href="{{ c.url | relative_url }}" data-command="{{ primary | strip | escape }}">{{ primary | strip | escape }}</a>
+            <button class="copy-btn" type="button" aria-label="Copy command">copy</button>
+          </div>
+        </div>
+        {% include filter-list.html cmd=c %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p id="no-results" hidden>Couldn't find the command you're looking for.</p>

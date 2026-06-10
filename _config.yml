@@ -1,0 +1,26 @@
+title: 0xrefs
+description: Interactive offensive-security command cheatsheet.
+url: "https://0xrefs.github.io"
+
+collections:
+  commands:
+    output: true
+    permalink: /command/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: commands
+    values:
+      layout: command
+
+exclude:
+  - WADComs.github.io-master/
+  - 0xrefs.txt
+  - docs/
+  - test/
+  - README.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

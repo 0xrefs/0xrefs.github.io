@@ -1,0 +1,6 @@
+oscp:
+  label: OSCP/CPTS
+  description: Part of the OSCP/CPTS exam-prep set.
+cli:
+  label: CLI
+  description: General daily-use CLI command.

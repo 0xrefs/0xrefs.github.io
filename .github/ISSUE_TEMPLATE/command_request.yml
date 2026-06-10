@@ -1,0 +1,98 @@
+name: Command request
+description: Suggest a command to add to the cheat sheet.
+title: "[command] "
+labels: ["command"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! If you can, consider opening a pull request
+        instead, it is one small file. See the
+        [contributing guide](https://github.com/0xrefs/0xrefs.github.io/blob/main/CONTRIBUTING.md).
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: The exact command, using $UPPERCASE tokens for fill-in values.
+      placeholder: nxc smb $IP -u $USER -p $PASSWORD --shares
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: description
+    attributes:
+      label: Description
+      description: One short sentence describing what it does.
+      placeholder: Enumerate SMB shares with credentials.
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      multiple: true
+      options:
+        - Linux
+        - Windows
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      multiple: true
+      options:
+        - oscp
+        - cli
+    validations:
+      required: true
+  - type: dropdown
+    id: service
+    attributes:
+      label: Service
+      multiple: true
+      options:
+        - SMB
+        - LDAP
+        - Kerberos
+        - WinRM
+        - RDP
+        - MSSQL
+        - HTTP
+        - SNMP
+        - DNS
+        - RPC
+        - Redis
+        - MySQL
+        - SSH
+        - AD
+        - ADCS
+        - WMI
+        - other (note it below)
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      multiple: true
+      options:
+        - Enumeration
+        - Exploitation
+        - PrivEsc
+        - Persistence
+        - Cracking
+        - Pivoting
+        - LateralMovement
+        - CredAccess
+        - InitialAccess
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to docs or tooling for this command (one per line).
+      placeholder: https://www.netexec.wiki/
+    validations:
+      required: false

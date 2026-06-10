@@ -1,0 +1,9 @@
+hash:
+  label: Hash (NTLM)
+  description: NTLM / NT hash (pass-the-hash).
+ticket:
+  label: Ticket (.ccache/.kirbi)
+  description: Kerberos ticket.
+cert:
+  label: Cert (.pfx/.pem)
+  description: Certificate.

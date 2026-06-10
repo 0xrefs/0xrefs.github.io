@@ -1,0 +1,54 @@
+---
+layout: default
+---
+{% assign primary = page.command %}
+{% if page.variants %}{% assign primary = page.variants[0].command %}{% endif %}
+
+{% include page-title.html title=primary %}
+
+{% include filter-list.html cmd=page %}
+
+{% if page.description %}<p>{{ page.description }}</p>{% endif %}
+
+{% include variable-bar.html %}
+
+<p>Command: <span class="os-icons">{% include os-icons.html os=page.os %}</span>
+  <button class="copy-btn" type="button" style="float:right" aria-label="Copy command">copy</button>
+</p>
+<div class="cmd-group">
+  {% if page.variants %}
+  <div class="variant-tabs">
+    {% for v in page.variants %}
+    <button type="button" class="variant-tab{% if forloop.first %} active{% endif %}" data-command="{{ v.command | strip | escape }}">{{ v.label }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <ul class="examples">
+    <li>
+      <pre><code class="cmd-text" data-command="{{ primary | strip | escape }}">{{ primary | strip | escape }}</code></pre>
+    </li>
+  </ul>
+</div>
+
+{% if page.references %}
+<p>References:</p>
+<div class="references">
+  {% for ref in page.references %}<a href="{{ ref }}" rel="noopener">{{ ref }}</a>{% endfor %}
+</div>
+{% endif %}
+
+{% capture related_items %}
+  {% assign shown = 0 %}
+  {% for c in site.commands %}
+    {% if shown < 6 and c.url != page.url %}
+      {% assign match = false %}
+      {% for s in c.service %}{% if page.service contains s %}{% assign match = true %}{% break %}{% endif %}{% endfor %}
+      {% unless match %}{% for ph in c.phase %}{% if page.phase contains ph %}{% assign match = true %}{% break %}{% endif %}{% endfor %}{% endunless %}
+      {% if match %}{% assign rcmd = c.command %}{% if c.variants %}{% assign rcmd = c.variants[0].command %}{% endif %}<li><a href="{{ c.url | relative_url }}">{{ rcmd | strip | escape | truncate: 70 }}</a></li>{% assign shown = shown | plus: 1 %}{% endif %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% if related_items contains "<li>" %}
+<h2 id="related">Related commands</h2>
+<ul class="related">{{ related_items }}</ul>
+{% endif %}

@@ -1,0 +1,15 @@
+---
+permalink: /commands/cli.txt
+layout: null
+sitemap: false
+---
+{% assign cmds = site.commands | where_exp: "c", "c.os contains 'Linux'" -%}
+{% for c in cmds -%}
+{% if c.variants -%}
+{% for v in c.variants -%}
+{{ v.command | strip }}
+{% endfor -%}
+{% else -%}
+{{ c.command | strip }}
+{% endif -%}
+{% endfor -%}

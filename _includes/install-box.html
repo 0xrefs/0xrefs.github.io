@@ -1,0 +1,20 @@
+<div id="install" data-base-url="{{ site.url }}">
+  <div class="install-controls">
+    <div class="install-group">
+      <span class="install-label">Commands:</span>
+      <button type="button" class="pill" data-set="cli" aria-pressed="true">All</button>
+      <button type="button" class="pill" data-set="oscp">OSCP/CPTS</button>
+    </div>
+    <div class="install-group">
+      <span class="install-label">History:</span>
+      <button type="button" class="pill" data-shell="bash">bash</button>
+      <button type="button" class="pill" data-shell="zsh" aria-pressed="true">zsh</button>
+      <button type="button" class="pill" data-shell="fish">fish</button>
+    </div>
+  </div>
+  <div class="bin-name">
+    <code id="install-cmd" class="cmd-link"></code>
+    <button type="button" class="copy-btn" data-copy-target="install-cmd" aria-label="Copy install command">copy</button>
+  </div>
+  <p class="install-note">Only Linux CLI commands load into your history, Windows commands stay cheat-sheet only.</p>
+</div>

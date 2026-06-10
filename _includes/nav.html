@@ -1,0 +1,7 @@
+<nav class="topnav">
+  <span class="topnav-links">
+    <a class="pill{% if page.url == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">main</a>
+    <a class="pill{% if page.url == '/about/' %} active{% endif %}" href="{{ '/about/' | relative_url }}">about</a>
+  </span>
+  <button id="theme-toggle" class="toggle" type="button" aria-label="Toggle dark mode">dark</button>
+</nav>
