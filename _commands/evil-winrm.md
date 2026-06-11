@@ -1,23 +1,20 @@
 ---
 variants:
-  - label: creds
+  - label: password
     command: |
       evil-winrm -i $IP -u $USER -p $PASSWORD
-  - label: hash
+  - label: pth
     command: |
       evil-winrm -i $IP -u $USER -H $HASH
-  - label: ticket
+  - label: scripts
     command: |
-      evil-winrm -i $IP -u $USER -k
-  - label: cert
-    command: |
-      evil-winrm -i $IP -c pub.pem -k priv.pem -S -r $DOMAIN
-description: Interactive WinRM shell, by auth method.
+      evil-winrm -i $IP -u $USER -p $PASSWORD -s /scripts -e /executables
+description: Interactive WinRM shell, by auth method, with upload, download, and script loading
 os: [Linux]
 category: [oscp, cli]
-have: [hash, ticket, cert]
 service: [WinRM]
-phase: [Exploitation]
+phase: [Exploitation, LateralMovement]
 references:
+  - https://www.kali.org/tools/evil-winrm/
   - https://github.com/Hackplayers/evil-winrm
 ---
