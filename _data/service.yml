@@ -46,3 +46,24 @@ ADCS:
 WMI:
   label: WMI
   description: Windows Management Instrumentation.
+FTP:
+  label: FTP
+  description: File Transfer Protocol.
+NFS:
+  label: NFS
+  description: Network File System.
+SMTP:
+  label: SMTP
+  description: Mail submission and transfer.
+IMAP:
+  label: IMAP
+  description: Mailbox access.
+POP3:
+  label: POP3
+  description: Mailbox retrieval.
+Oracle:
+  label: Oracle
+  description: Oracle Database and TNS listener.
+PostgreSQL:
+  label: PostgreSQL
+  description: PostgreSQL database.

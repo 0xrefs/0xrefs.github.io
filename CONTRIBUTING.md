@@ -44,6 +44,7 @@ references:
 | `category`    | yes      | `oscp` and/or `cli`. |
 | `service`     | yes      | One or more services (see below). |
 | `phase`       | yes      | One or more phases (see below). |
+| `have`        | see notes | Required whenever a command can authenticate with a hash, ticket, or certificate. Powers the "what you have" filter. |
 | `references`  | no       | List of URLs to docs/tooling. |
 
 \* Provide **either** `command` or `variants`, not both.
@@ -62,12 +63,13 @@ variants:
   - label: password
     command: |
       evil-winrm -i $IP -u $USER -p $PASSWORD
-  - label: pth
+  - label: hash
     command: |
       evil-winrm -i $IP -u $USER -H $HASH
 description: Interactive WinRM shell, by auth method.
 os: [Linux]
 category: [oscp, cli]
+have: [hash]
 service: [WinRM]
 phase: [Exploitation]
 references:
@@ -75,8 +77,9 @@ references:
 ---
 ```
 
-`os`, `category`, `service`, and `phase` are shared across the whole entry, so
-list the union of what the variants need.
+`os`, `category`, `service`, `phase`, and `have` are shared across the whole
+entry, so list the union of what the variants need. Label a pass-the-hash
+variant `hash` rather than `pth`, so the label matches the `have` value.
 
 ### Variables
 
@@ -94,13 +97,15 @@ out in full: `/usr/share/wordlists/rockyou.txt`.
 - **os:** `Linux`, `Windows`
 - **category:** `oscp`, `cli`
 - **service:** `SMB`, `LDAP`, `Kerberos`, `WinRM`, `RDP`, `MSSQL`, `HTTP`, `SNMP`,
-  `DNS`, `RPC`, `Redis`, `MySQL`, `SSH`, `AD`, `ADCS`, `WMI`
+  `DNS`, `RPC`, `Redis`, `MySQL`, `SSH`, `AD`, `ADCS`, `WMI`, `FTP`, `NFS`,
+  `SMTP`, `IMAP`, `POP3`, `Oracle`, `PostgreSQL`
 - **phase:** `Enumeration`, `Exploitation`, `PrivEsc`, `Persistence`, `Cracking`,
   `Pivoting`, `LateralMovement`, `CredAccess`, `InitialAccess`
+- **have:** `hash`, `ticket`, `cert`
 
 Need a value that isn't listed? Add it to the matching file in
-[`_data/`](_data/) (`os.yml`, `category.yml`, `service.yml`, `phase.yml`) in the
-same PR.
+[`_data/`](_data/) (`os.yml`, `category.yml`, `service.yml`, `phase.yml`,
+`have.yml`) in the same PR.
 
 ### Install-set rules
 

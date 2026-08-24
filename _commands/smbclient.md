@@ -9,6 +9,9 @@ variants:
   - label: impacket
     command: |
       impacket-smbclient $DOMAIN/$USER:$PASSWORD@$IP
+  - label: impacket-hash
+    command: |
+      impacket-smbclient $DOMAIN/$USER@$IP -hashes :$HASH
   - label: ticket
     command: |
       impacket-smbclient -k -no-pass $DOMAIN/$USER@$IP

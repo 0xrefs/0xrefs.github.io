@@ -12,12 +12,16 @@ variants:
   - label: cert
     command: |
       evil-winrm -i $IP -c pub.pem -k priv.pem -S -r $DOMAIN
-description: Interactive WinRM shell, by auth method.
+  - label: scripts
+    command: |
+      evil-winrm -i $IP -u $USER -p $PASSWORD -s /scripts -e /executables
+description: Interactive WinRM shell, by auth method, with script and executable loading
 os: [Linux]
 category: [oscp, cli]
 have: [hash, ticket, cert]
 service: [WinRM]
-phase: [Exploitation]
+phase: [Exploitation, LateralMovement]
 references:
+  - https://www.kali.org/tools/evil-winrm/
   - https://github.com/Hackplayers/evil-winrm
 ---
